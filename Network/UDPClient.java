@@ -7,8 +7,6 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-import com.service.BenchMarkHelper;
-
 public class UDPClient {
 
 	public static void main(String[] args) {
@@ -16,7 +14,6 @@ public class UDPClient {
 		try {
 			String userInput;
 			long t1,t2;
-			float a[]=new float[1024*64];
 			Scanner stdin = new Scanner(System.in);
 			System.out.println("Press 1");
 			UDPClient uc= new UDPClient();
@@ -89,12 +86,17 @@ public class UDPClient {
 		System.out.println("0. Exit");
 		
 	}
+	/**
+	 * @param q
+	 * @return
+	 */
 	public String askUser(String q)
 	{
 		 System.out.println(q);
-		 Scanner reader = new Scanner(System.in);
-		 String resp=reader.nextLine();
-		return resp.trim();
+		 try (Scanner reader = new Scanner(System.in)) {
+			String resp=reader.nextLine();
+			return resp.trim();
+		}
 	}
 	
 }
