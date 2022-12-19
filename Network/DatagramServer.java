@@ -8,7 +8,7 @@ import java.net.SocketException;
 public class DatagramServer {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		//TODO Auto-generated method stub
 		DatagramSocket ds=null;
 			try {
 				while(true)
